@@ -1,0 +1,181 @@
+/* ============================================
+   EXPENSE FORM
+   ============================================ */
+
+.expense-form__fields {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+/* ─── Field Group ─── */
+.expense-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.expense-form__label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.expense-form__label svg {
+  width: 15px;
+  height: 15px;
+  color: var(--color-text-muted);
+}
+
+/* ─── Inputs ─── */
+.expense-form__input {
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  padding: var(--space-3) var(--space-3);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  transition: all var(--transition-fast);
+  width: 100%;
+  line-height: 1.5;
+}
+
+.expense-form__input::placeholder {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.expense-form__input:hover {
+  border-color: var(--color-primary-200);
+}
+
+.expense-form__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Select */
+.expense-form__select {
+  cursor: pointer;
+  appearance: auto;
+}
+
+/* Currency prefix wrapper */
+.expense-form__input-wrapper {
+  position: relative;
+}
+
+.expense-form__currency-prefix {
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.expense-form__input--has-prefix {
+  padding-left: var(--space-7);
+}
+
+/* Remove number spinners */
+.expense-form__input[type="number"]::-webkit-outer-spin-button,
+.expense-form__input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.expense-form__input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ─── Actions ─── */
+.expense-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Primary */
+.btn--primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: var(--color-text-on-primary);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+.btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(99, 102, 241, 0.3);
+}
+
+/* Ghost */
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border: 1.5px solid var(--color-border);
+}
+
+.btn--ghost:hover {
+  background: var(--color-bg);
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .expense-form__fields {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 500px) {
+  .expense-form__fields {
+    grid-template-columns: 1fr;
+  }
+
+  .expense-form__actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn {
+    justify-content: center;
+    padding: var(--space-3) var(--space-4);
+  }
+}

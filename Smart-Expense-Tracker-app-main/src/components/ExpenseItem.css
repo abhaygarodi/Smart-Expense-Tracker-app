@@ -1,0 +1,146 @@
+/* ============================================
+   EXPENSE ITEM CARD
+   ============================================ */
+
+.expense-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+    animation: fadeInUp 0.5s var(--transition-base) both;
+    cursor: default;
+}
+
+.expense-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--color-primary-200);
+}
+
+/* ─── Body ─── */
+.expense-item__body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+}
+
+.expense-item__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.expense-item__title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: -0.01em;
+}
+
+/* ─── Category Badge ─── */
+.expense-item__category {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+    width: fit-content;
+    letter-spacing: 0.01em;
+}
+
+/* ─── Amount Pill ─── */
+.expense-item__amount {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    padding: var(--space-1) var(--space-4);
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--color-primary-50), var(--color-primary-100));
+    color: var(--color-primary-dark);
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+    flex-shrink: 0;
+}
+
+/* ─── Action Buttons ─── */
+.expense-item__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-shrink: 0;
+}
+
+.expense-item__btn {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.expense-item__btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Edit */
+.expense-item__btn--edit {
+    color: var(--color-info);
+}
+
+.expense-item__btn--edit:hover {
+    background: var(--color-info-bg);
+    border-color: rgba(59, 130, 246, 0.2);
+    transform: scale(1.1);
+}
+
+/* Delete */
+.expense-item__btn--delete {
+    color: var(--color-danger);
+}
+
+.expense-item__btn--delete:hover {
+    background: var(--color-danger-light);
+    border-color: rgba(239, 68, 68, 0.2);
+    transform: scale(1.1);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 600px) {
+    .expense-item {
+        flex-wrap: wrap;
+        gap: var(--space-3);
+        padding: var(--space-4);
+    }
+
+    .expense-item__body {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+        order: -1;
+        flex-basis: calc(100% - 80px);
+    }
+
+    .expense-item__actions {
+        margin-left: auto;
+    }
+}

@@ -1,0 +1,130 @@
+/* ============================================
+   BAR CHART
+   ============================================ */
+
+.chart-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    animation: fadeInUp 0.6s var(--transition-base) 0.2s both;
+    transition: box-shadow var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent-light));
+}
+
+.chart-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+/* ─── Header ─── */
+.chart-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+}
+
+.chart-card__header-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--color-primary-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.chart-card__header-icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-primary);
+}
+
+.chart-card__title {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.chart-card__subtitle {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-top: 1px;
+}
+
+/* ─── SVG Chart ─── */
+.chart-card__body {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.bar-chart {
+    width: 100%;
+    height: auto;
+    display: block;
+    min-width: 500px;
+}
+
+.chart-axis-label {
+    font-size: 10px;
+    font-family: var(--font-family);
+    fill: var(--color-text-muted);
+    font-weight: 500;
+}
+
+.chart-month-label {
+    font-size: 10px;
+    font-family: var(--font-family);
+    fill: var(--color-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Bar hover */
+.bar-rect {
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+}
+
+.bar-value {
+    font-size: 10px;
+    font-family: var(--font-family);
+    fill: var(--color-primary-dark);
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.bar-group:hover .bar-value {
+    opacity: 1;
+}
+
+.bar-group:hover .bar-rect {
+    opacity: 0.85;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+    .chart-card {
+        padding: var(--space-4);
+    }
+
+    .bar-chart {
+        min-width: 460px;
+    }
+}

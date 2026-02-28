@@ -1,0 +1,51 @@
+/* ============================================
+   EXPENSES LIST + EMPTY STATE
+   ============================================ */
+
+.expenses-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+/* ─── Empty State ─── */
+.expenses-empty {
+    text-align: center;
+    padding: var(--space-16) var(--space-6);
+    animation: fadeIn 0.5s var(--transition-base);
+}
+
+.expenses-empty__icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto var(--space-5);
+    background: var(--color-primary-50);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.expenses-empty__icon svg {
+    width: 36px;
+    height: 36px;
+    color: var(--color-primary-light);
+}
+
+.expenses-empty__title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.expenses-empty__text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    max-width: 320px;
+    margin: 0 auto;
+    line-height: 1.6;
+}

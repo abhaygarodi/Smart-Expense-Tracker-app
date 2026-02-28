@@ -1,0 +1,56 @@
+/* ============================================
+   EXPENSE DATE — Calendar Badge
+   ============================================ */
+
+.expense-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 62px;
+  background: linear-gradient(145deg, var(--color-primary), var(--color-accent));
+  border-radius: var(--radius-md);
+  color: white;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+}
+
+/* Subtle shimmer overlay */
+.expense-date::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 50%,
+      transparent 100%);
+  pointer-events: none;
+}
+
+.expense-date__month {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+  line-height: 1;
+  margin-bottom: 1px;
+}
+
+.expense-date__day {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.expense-date__year {
+  font-size: 9px;
+  font-weight: 500;
+  opacity: 0.7;
+  line-height: 1;
+  margin-top: 1px;
+}
